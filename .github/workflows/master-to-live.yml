@@ -14,7 +14,10 @@ jobs:
           known_hosts: ${{ secrets.SSH_HOST }}
       - name: pass environment
         run: ssh aamzes@host-3.sitedistrict.com
+        id: wait-for-build
       - name: Move plugin directory
-        run: cd /home/aamzes && ls -la
+        if: steps.wait-for-build.outputs.conclusion == 'success'
+        run: cd /home/aamzes/sites/cicd.sitedistrict.com/www/wp-content/plugins/ci-cd-sitedistrict/
       - name: Update from repository
+        if: steps.wait-for-build.outputs.conclusion == 'success'
         run: git pull
