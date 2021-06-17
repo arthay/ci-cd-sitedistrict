@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install SSH Key
-          uses: shimataro/ssh-key-action@v2
-          with:
-            key: ${{ secrets.SSH_PRIVATE_KEY }}
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Move plugin directory
         run: cd /home/aamzes/sites/cicd.sitedistrict.com/www/wp-content/plugins/ci-cd-sitedistrict/
       - name: Update from repository
