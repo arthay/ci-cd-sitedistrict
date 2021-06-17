@@ -12,8 +12,8 @@ jobs:
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.SSH_HOST }}
-      - name: PWD
-        run: cat /etc/hosts
+      - name: pass environment
+        run: ssh aamzes@host-3.sitedistrict.com
       - name: Move plugin directory
         run: cd /home/aamzes && ls -la
       - name: Update from repository
