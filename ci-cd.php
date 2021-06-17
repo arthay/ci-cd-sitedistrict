@@ -12,7 +12,7 @@
  *
  * @package           create-block
  */
-
+// Test add code
 function cc_load_footer_scripts() {
 	$index_js     = 'scripts/index.js';
 	wp_enqueue_script('script-name', plugins_url( $index_js, __FILE__ ), false, '1.0', true );
