@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       CI-CD
- * Description:       Example block written with ESNext standard and JSX support – build step required.lala
+ * Description:       Example block written with ESNext standard and JSX support – build step required.lalaa
  * Requires at least: 5.7
  * Requires PHP:      7.0
  * Version:           0.1.0
