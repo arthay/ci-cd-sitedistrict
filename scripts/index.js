@@ -1,1 +1,1 @@
-alert('foo and bar');
+alert('ci-cd is working');
