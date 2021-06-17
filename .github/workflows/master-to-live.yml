@@ -18,9 +18,9 @@ jobs:
           host: host-3.sitedistrict.com
           username: aamzes
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          pwd
-          ls -la
+          script: |
+            pwd
+            ls -la
         id: wait-for-build
       - name: Move plugin directory
         if: steps.wait-for-build.outputs.conclusion == 'success'
