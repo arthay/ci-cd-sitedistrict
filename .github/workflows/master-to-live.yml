@@ -12,11 +12,11 @@ jobs:
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.SSH_HOST }}
-      - name: pass environment
+      - name: SSH server and update plugin
         uses: appleboy/ssh-action@master
         with:
-          host: host-3.sitedistrict.com
-          username: aamzes
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME_HOST }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/aamzes/sites/cicd.sitedistrict.com/www/wp-content/plugins/ci-cd-sitedistrict/
