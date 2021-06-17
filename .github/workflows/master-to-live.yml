@@ -19,12 +19,5 @@ jobs:
           username: aamzes
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            pwd
-            ls -la
-        id: wait-for-build
-      - name: Move plugin directory
-        if: steps.wait-for-build.outputs.conclusion == 'success'
-        run: cd /home/aamzes/sites/cicd.sitedistrict.com/www/wp-content/plugins/ci-cd-sitedistrict/
-      - name: Update from repository
-        if: steps.wait-for-build.outputs.conclusion == 'success'
-        run: git pull
+            cd /home/aamzes/sites/cicd.sitedistrict.com/www/wp-content/plugins/ci-cd-sitedistrict/
+            git pull
