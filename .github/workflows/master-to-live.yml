@@ -13,7 +13,14 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.SSH_HOST }}
       - name: pass environment
-        run: ssh aamzes@host-3.sitedistrict.com
+        uses: appleboy/ssh-action@master
+        with:
+          host: host-3.sitedistrict.com
+          username: aamzes
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          pwd
+          ls -la
         id: wait-for-build
       - name: Move plugin directory
         if: steps.wait-for-build.outputs.conclusion == 'success'
