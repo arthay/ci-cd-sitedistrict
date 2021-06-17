@@ -11,7 +11,13 @@ jobs:
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - name: Move plugin directory
-        run: cd /home/aamzes/sites/cicd.sitedistrict.com/www/wp-content/plugins/ci-cd-sitedistrict/
-      - name: Update from repository
-        run: git pull
+          known_hosts: ${{ secrets.SSH_HOST }}
+      - name: SSH server and update plugin
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME_HOST }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /home/aamzes/sites/cicd.sitedistrict.com/www/wp-content/plugins/ci-cd-sitedistrict/
+            git pull
