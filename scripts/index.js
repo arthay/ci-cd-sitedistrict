@@ -1,1 +1,1 @@
-alert('foo');
+alert('foo and bar');
