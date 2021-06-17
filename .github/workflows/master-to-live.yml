@@ -13,7 +13,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.SSH_HOST }}
       - name: PWD
-        run: pwd
+        run: cat /etc/hosts
       - name: Move plugin directory
         run: cd /home/aamzes/sites/cicd.sitedistrict.com/www/wp-content/plugins/ci-cd-sitedistrict/
       - name: Update from repository
