@@ -15,7 +15,7 @@ jobs:
       - name: create folder
         run: mkdir foo
       - name: create test file
-        run: touch text-file.txt
+        run: touch test-file.txt
         working-directory: './foo'
       - name: Deploy with rsync
         run: rsync -avz ./foo/ ${{ secrets.USERNAME_HOST }}@${{ secrets.HOST }}:/home/aamzes/sites/cicd.sitedistrict.com/www/wp-content/plugins/ci-cd-sitedistrict/foo/
