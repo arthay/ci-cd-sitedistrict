@@ -14,8 +14,11 @@ jobs:
           known_hosts: ${{ secrets.SSH_HOST }}
       - name: create folder
         run: mkdir foo
+      - name: create test file
+        run: touch text-file.txt
+        working-directory: './foo'
       - name: Deploy with rsync
-        run: rsync -avz ./foo/ ${{ secrets.USERNAME_HOST }}@${{ secrets.HOST }}:/home/aamzes/sites/cicd.sitedistrict.com/www/wp-content/plugins/ci-cd-sitedistrict/
+        run: rsync -avz ./foo/ ${{ secrets.USERNAME_HOST }}@${{ secrets.HOST }}:/home/aamzes/sites/cicd.sitedistrict.com/www/wp-content/plugins/ci-cd-sitedistrict/foo/
       - name: SSH server and update plugin
         uses: appleboy/ssh-action@master
         with:
