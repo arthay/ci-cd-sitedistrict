@@ -12,6 +12,10 @@ jobs:
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.SSH_HOST }}
+      - name: create folder
+        run: mkdir foo
+      - name: Deploy with rsync
+        run: rsync -avz ./foo/ ${{ secrets.USERNAME_HOST }}@${{ secrets.HOST }}:/home/aamzes/sites/cicd.sitedistrict.com/www/wp-content/plugins/ci-cd-sitedistrict/
       - name: SSH server and update plugin
         uses: appleboy/ssh-action@master
         with:
